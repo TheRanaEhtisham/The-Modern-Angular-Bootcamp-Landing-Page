@@ -1,0 +1,31 @@
+<nav>
+  <ul class="pagination">
+    <li class="page-item" [ngClass]="{ disabled: currentPage === 0 }">
+      <!-- <a class="page-link" (click)="currentPage =currentPage - 1">Prev</a> -->
+      <a class="page-link" (click)="onPageChangedClick(currentPage - 1)"
+        >Prev</a
+      >
+    </li>
+    <ng-container *appTimes="numberOfPages; let page = index">
+      <li
+        class="page-item"
+        [ngClass]="{ active: page === currentPage }"
+        *ngIf="checkWindowIndex(page)"
+      >
+        <a (click)="onPageChangedClick(page)" class="page-link" href="#">{{
+          page + 1
+        }}</a>
+        <!-- <a (click)="currentPage = page" class="page-link" href="#">{{ page + 1}}</a> -->
+      </li>
+    </ng-container>
+    <li
+      class="page-item"
+      [ngClass]="{ disabled: currentPage === numberOfPages - 1 }"
+    >
+      <a class="page-link" (click)="onPageChangedClick(currentPage + 1)"
+        >Next</a
+      >
+      <!-- <a class="page-link" (click)="currentPage = currentPage+ 1">Next</a> -->
+    </li>
+  </ul>
+</nav>
