@@ -1,0 +1,12 @@
+:host{
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 10px;
+    width: 300px;
+    z-index: 20px;
+}
+
+.btn-close:focus {
+    box-shadow: none;
+}
